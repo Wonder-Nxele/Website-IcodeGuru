@@ -1,0 +1,97 @@
+/* Home.css */
+
+.home-container {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.home-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #3d71e0;
+}
+
+.home-intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.home-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: #3d71e0;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2a4cb1;
+}
+
+.btn-secondary {
+  color: white;
+  border: 2px solid #3d71e0;
+}
+
+.btn-secondary:hover {
+  background-color: #3d71e0;
+  color: white;
+}
+
+.features {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.features h2 {
+  font-size: 1.8rem;
+  color: #3d71e0;
+  margin-bottom: 15px;
+}
+
+.features ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.features li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+.vacation-promo-container {
+  background-color: black;
+  max-width: 800px;
+  padding: 30px;
+  margin: 40px auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  text-align: center;
+  color: white;
+}
+
+.vacation-promo-container h2 {
+  color: #007bff;
+  margin-bottom: 15px;
+}

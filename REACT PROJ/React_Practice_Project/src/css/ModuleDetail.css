@@ -1,0 +1,55 @@
+.module-detail-container {
+  max-width: 800px;
+  margin: 90px auto 40px;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.85); /* dark translucent */
+  color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.module-detail-container h1 {
+  margin-bottom: 20px;
+  color: #3d71e0;
+}
+
+.module-detail-container .description {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.module-detail-container .price {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.module-detail-container .book-button {
+  background-color: #3d71e0;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.module-detail-container .book-button:hover {
+  background-color: #2a4cb1;
+}
+
+.module-detail-container .back-link {
+  margin-top: 25px;
+}
+
+.module-detail-container .back-link a {
+  color: #646cff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.module-detail-container .back-link a:hover {
+  text-decoration: underline;
+}

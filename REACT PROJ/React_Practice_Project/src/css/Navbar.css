@@ -1,0 +1,80 @@
+.navbar {
+  background-color: #000;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  /* CHANGE THIS LINE */
+  position: static; /* Or remove the 'position' property entirely for default behavior */
+  /* If you remove 'position: fixed', 'top: 0;' and 'z-index: 1000;' become redundant for this purpose */
+  top: auto; /* Reset top property */
+  z-index: auto; /* Reset z-index */
+  width: 95%;
+  height: auto;
+  flex-wrap: wrap;
+}
+
+.navbar-left .brand {
+  font-size: 22px;
+  font-weight: bold;
+  color: #3d71e0;
+}
+
+/* Right section (nav links) */
+.navbar-right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.navbar a,
+.logout-button {
+  color: #3d71e0;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navbar a:hover,
+.logout-button:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+.logout-button {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* ✅ Responsive */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px 15px;
+  }
+
+  .navbar-left .brand {
+    font-size: 18px;
+  }
+
+  .navbar-right {
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+    
+  }
+
+  .navbar a,
+  .logout-button {
+    font-size: 14px;
+    padding: 4px 8px;
+     top: 50%;
+  }
+}
