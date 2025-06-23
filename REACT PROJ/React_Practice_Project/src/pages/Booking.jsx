@@ -4,62 +4,96 @@ import { auth } from "../firebase";
 import "../css/Booking.css";
 import { useLocation } from "react-router-dom";
 
-
 // Initialize EmailJS
 init("P8-e-A5kGEE7OsFYG");
 
-export default function Booking() {
-    const location = useLocation();
-    const selectedModule = location.state?.module || "";  // fallback to empty string
+// Module info map
+const MODULE_INFO = {
+  "Introduction To Calculus": {
+    description: "Master limits, derivatives, and basic integration. This module is perfect for building a solid mathematical foundation.",
+    suggestions: ["Limits & Continuity", "Differentiation", "Real-world Applications"],
+  },
+  "Calculus and Linear Algebra": {
+    description: "A combo of calculus and matrices. Ideal for engineering or science students tackling multivariable problems.",
+    suggestions: ["Partial Derivatives", "Matrix Operations", "Determinants"],
+  },
+  "Introduction to Programming With Python": {
+    description: "Learn Python from scratch — variables, loops, functions, and data structures. No prior coding experience required!",
+    suggestions: ["Loops & Conditionals", "Functions", "Lists & Dictionaries"],
+  },
+  "Introduction to OOP With Java": {
+    description: "Get started with Object-Oriented Programming in Java: classes, objects, inheritance, and encapsulation.",
+    suggestions: ["Classes & Objects", "Inheritance", "Encapsulation"],
+  },
+  "Java OOP and GUI": {
+    description: "Build Java GUI applications using Swing or JavaFX while mastering core OOP principles.",
+    suggestions: ["Swing Components", "Event Handling", "Polymorphism"],
+  },
+  "Databases and Programming": {
+    description: "Understand how to design and query databases using SQL, and connect them to real-world applications.",
+    suggestions: ["SQL SELECTs", "JOINs", "ER Diagrams"],
+  },
+  "Introduction to Statistics": {
+    description: "Cover fundamentals of data analysis, probability, and statistical testing used in social and data sciences.",
+    suggestions: ["Descriptive Stats", "Probability", "Hypothesis Testing"],
+  },
+  "Data Structures and Algorithms": {
+    description: "Develop your understanding of how data is stored, accessed, and manipulated efficiently.",
+    suggestions: ["Arrays & Linked Lists", "Sorting Algorithms", "Recursion"],
+  },
+};
 
-    const [form, setForm] = useState({
+export default function Booking() {
+  const location = useLocation();
+  const routeModule = location.state?.module;
+  const backupModule = localStorage.getItem("selectedModule");
+  const selectedModule = routeModule || backupModule || "";
+
+  const [form, setForm] = useState({
     student_name: "",
     student_email: "",
-    module_name: selectedModule,  // ← set initially from route
+    module_name: selectedModule,
     date: "",
     timeslot1: "",
     timeslot2: "",
     timeslot3: "",
     hours: 1,
     concepts: "",
-    });
-
+  });
 
   const [status, setStatus] = useState("");
 
-  // Auto-fill email and name from Firebase auth
+  // Auto-fill Firebase info + store selected module in localStorage
   useEffect(() => {
-  const user = auth.currentUser;
-  if (user) {
-    setForm((prev) => ({
-      ...prev,
-      student_email: user.email || "",
-      student_name: user.displayName || "Student",
-      module_name: selectedModule || prev.module_name, // ← fix: preserve or reapply
-    }));
-  }
-}, [selectedModule]);
-
+    const user = auth.currentUser;
+    if (selectedModule) {
+      localStorage.setItem("selectedModule", selectedModule);
+    }
+    if (user) {
+      setForm((prev) => ({
+        ...prev,
+        student_email: user.email || "",
+        student_name: user.displayName || "Student",
+        module_name: selectedModule || prev.module_name,
+      }));
+    }
+  }, [selectedModule]);
 
   const onChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     const really = window.confirm("Are you sure you want to submit?");
     if (!really) return;
-    e.preventDefault();
+
     setStatus("Sending...");
-
     try {
-      // 1. Send booking request to admin
-      await send("service_f7wx5f4", "template_m4cftnb", form);
-
-      // 2. Send confirmation email to the student
-      await send("service_f7wx5f4", "template_k5dqchs", form);
+      await send("", "", form); // admin
+      await send("", "", form); // student
 
       setStatus("Booking request sent! Check your email shortly.");
 
-      // Reset form, but keep email/name for future use
       setForm((prev) => ({
         ...prev,
         date: "",
@@ -75,78 +109,60 @@ export default function Booking() {
     }
   };
 
+  const moduleDetails = MODULE_INFO[selectedModule];
+
   return (
     <div className="page-content">
       <div className="booking-container">
-        <h2>Book a Session</h2>
-        <form onSubmit={handleSubmit}>
+        <h2>📚 Book a Tutoring Session</h2>
+        <p>Fill in your preferred schedule and what you'd like to cover. Our tutors will get back to you ASAP!</p>
 
-          {/* Hidden fields passed to EmailJS */}
+        <div className="module-info">
+          <h3>📘 Module: {selectedModule || "Not Selected"}</h3>
+          {moduleDetails ? (
+            <>
+              <p className="module-description">{moduleDetails.description}</p>
+              <div className="suggestions">
+                <strong>💡 Common Topics:</strong>
+                <ul>
+                  {moduleDetails.suggestions.map((topic, idx) => (
+                    <li key={idx}>{topic}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : (
+            <p>This module is one of our custom subjects. You can request any concept you want covered.</p>
+          )}
+        </div>
+
+        <form onSubmit={handleSubmit}>
           <input type="hidden" name="student_email" value={form.student_email} />
           <input type="hidden" name="student_name" value={form.student_name} />
-            <label>
-            Module:
-            <input
-                type="text"
-                name="module_name"
-                value={form.module_name}
-                readOnly
-            />
-            </label>
 
           <label>
             Preferred Date:
-            <input
-              type="date"
-              name="date"
-              value={form.date}
-              onChange={onChange}
-              required
-            />
+            <input type="date" name="date" value={form.date} onChange={onChange} required />
           </label>
 
           <label>
             Time Slot 1:
-            <input
-              type="time"
-              name="timeslot1"
-              value={form.timeslot1}
-              onChange={onChange}
-              required
-            />
+            <input type="time" name="timeslot1" value={form.timeslot1} onChange={onChange} required />
           </label>
 
           <label>
             Time Slot 2:
-            <input
-              type="time"
-              name="timeslot2"
-              value={form.timeslot2}
-              onChange={onChange}
-            />
+            <input type="time" name="timeslot2" value={form.timeslot2} onChange={onChange} />
           </label>
 
           <label>
             Time Slot 3:
-            <input
-              type="time"
-              name="timeslot3"
-              value={form.timeslot3}
-              onChange={onChange}
-            />
+            <input type="time" name="timeslot3" value={form.timeslot3} onChange={onChange} />
           </label>
 
           <label>
             Number of Hours:
-            <input
-              type="number"
-              name="hours"
-              min="1"
-              max="8"
-              value={form.hours}
-              onChange={onChange}
-              required
-            />
+            <input type="number" name="hours" min="1" max="8" value={form.hours} onChange={onChange} required />
           </label>
 
           <label>
@@ -156,12 +172,13 @@ export default function Booking() {
               rows="4"
               value={form.concepts}
               onChange={onChange}
-              placeholder="Explain what topics you want to focus on..."
+              placeholder="Mention topics you'd like help with..."
             />
           </label>
 
           <button type="submit">Submit Booking</button>
         </form>
+
         {status && <p className="status">{status}</p>}
       </div>
     </div>

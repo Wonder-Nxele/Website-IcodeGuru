@@ -49,7 +49,7 @@ export default function Navbar() {
           </>
         ) : (
           <>
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
             <Link to="/testimonials">Testimonials</Link>
             <Link to="/signup">Sign Up</Link>
             <Link to="/login">Login</Link>
