@@ -18,3 +18,4 @@ https://i-code-guru.web.app/
 - Firebase (Authentication, Firestore, Hosting)
 - CSS
 
+Wonder Nxele – [LinkedIn](https://www.linkedin.com/in/wonder-nxele-030881290/)
