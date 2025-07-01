@@ -1,0 +1,27 @@
+.admin-dashboard {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+input {
+  margin: 5px;
+  padding: 8px;
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.module-card, .booking-card {
+  margin-top: 10px;
+  padding: 15px;
+  background: #1e293b;
+  color: #fff;
+  border-radius: 6px;
+}

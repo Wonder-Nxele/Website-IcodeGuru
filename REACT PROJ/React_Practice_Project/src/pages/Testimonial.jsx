@@ -69,7 +69,7 @@ export default function Testimonials() {
     <div className="page-content">
       <div className="testimonials-container">
         <h1>📣 What Our Students Say</h1>
-        <p className="testimonial-subheading">Real success stories from learners who leveled up with iCodeGuru.</p>
+        <p style={{color: "blue"}}>Real success stories from learners who leveled up with iCodeGuru.</p>
         <div className="testimonial-grid">
           {TESTIMONIALS.map((t, i) => (
             <div className="testimonial-card" key={i}>

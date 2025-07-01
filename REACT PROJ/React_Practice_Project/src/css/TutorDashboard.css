@@ -1,0 +1,65 @@
+.tutor-dashboard {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fefefe;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.tutor-dashboard h2 {
+  text-align: center;
+  color: #ffd700#ffd700; /* Gold header */
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.booking-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-left: 6px solid #3d71e0;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.booking-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.booking-card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: white;
+}
+
+.booking-card strong {
+  color: white;
+  font-weight: 600;
+}
+
+.booking-card label {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
+}
+
+.booking-card select {
+  margin-top: 0.3rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #3d71e0;
+  width: 100%;
+  background-color :#ffd700;
+}
+
+.booking-card select:focus {
+  outline: none;
+  border-color: #ffd700;
+  background-color: #ffd700;
+}

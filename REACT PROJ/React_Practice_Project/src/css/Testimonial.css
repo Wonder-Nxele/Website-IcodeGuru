@@ -8,7 +8,7 @@
 
 .testimonials-container h1 {
   margin-bottom: 40px;
-  color: #3d71e0;
+  color: #ffd700;
 }
 
 .testimonial-grid {
@@ -18,8 +18,8 @@
 }
 
 .testimonial-card {
-  background-color: rgba(0, 0, 0, 0.85);
-  color: #f5f5f5;
+  background-color:white;
+  color: blue;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
@@ -33,10 +33,11 @@
 
 .testimonial-card .student-name {
   font-weight: bold;
+  color: blue;
   font-size: 0.9rem;
 }
 
 .testimonial-card .student-name span {
   font-weight: normal;
-  color: #ccc;
+  color: blue;
 }

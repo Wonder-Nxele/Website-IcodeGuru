@@ -1,5 +1,5 @@
 .footer-navbar {
-  background-color: #000;
+  background-color: rgba(36, 41, 63, 0.829);
   padding: 12px 20px;
   display: flex;
   justify-content: space-between;
@@ -22,7 +22,7 @@
 .footer-navbar-left .brand {
   font-weight: bold;
   font-size: 18px;
-  color: #3d71e0;
+  color: #ffd700;
 }
 
 .footer-navbar-left .founder {
@@ -37,7 +37,7 @@
 }
 
 .footer-navbar-right a {
-  color: #3d71e0;
+  color: #ffd700;
   text-decoration: none;
 }
 

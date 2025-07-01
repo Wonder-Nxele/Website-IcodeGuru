@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #000;
+  background-color: rgba(36, 41, 63, 0.829);
   padding: 12px 20px;
   display: flex;
   justify-content: space-between;
@@ -18,7 +18,7 @@
 .navbar-left .brand {
   font-size: 22px;
   font-weight: bold;
-  color: #3d71e0;
+  color: #ffd700;
 }
 
 /* Right section (nav links) */
@@ -30,7 +30,7 @@
 
 .navbar a,
 .logout-button {
-  color: #3d71e0;
+  color: #ffd700;
   text-decoration: none;
   background: none;
   border: none;

@@ -19,7 +19,6 @@ export default function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Logged in successfully!");
       navigate("/offers");
     }catch (err) {
       
@@ -47,7 +46,6 @@ export default function Login() {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      alert("Logged in with Google!");
       navigate("/offers");
     } catch (err) {
       console.error("Google Login Error:", err.code, err.message); // Log full error for debugging

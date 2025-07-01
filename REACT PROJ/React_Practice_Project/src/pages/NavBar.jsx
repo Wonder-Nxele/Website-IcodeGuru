@@ -6,11 +6,24 @@ import "../css/NavBar.css"; // Ensure this CSS file exists and is linked
 
 export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [dashboardPath, setDashboardPath] = useState("/student-dashboard");
   const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsLoggedIn(!!user);
+      if (user) {
+        const uid = user.uid;
+        if (uid === "RLBh9GOJbwdcTWSLmS17XwACdI92") {
+          setDashboardPath("/admin-dashboard");
+        } else if (
+          ["lTxCibiDDxaguh6hdlUTXjr9wEj1", "CLecIlf8FWWUg7C0jeREjgTyrA22", "5kzeQ1a0lqfJfstXPgaaQzgELRA2"].includes(uid)
+        ) {
+          setDashboardPath("/tutor-dashboard");
+        } else {
+          setDashboardPath("/student-dashboard");
+        }
+      }
     });
     return () => unsubscribe();
   }, []);
@@ -42,7 +55,7 @@ export default function Navbar() {
           <>
             <Link to="/about">About</Link>
             <Link to="/offers">Courses</Link>
-            <Link to="/testimonials">Testimonials</Link>
+            <Link to={dashboardPath}>Dashboard</Link>
             <Link to="/" className="logout-button" onClick={handleLogout}>
               Logout
             </Link>

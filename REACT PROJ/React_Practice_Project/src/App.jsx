@@ -1,75 +1,108 @@
-  import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"; // Import useLocation
-  import { useEffect } from "react"; // Import useEffect for potential future use, though not strictly needed for this specific logic
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
-  import Home from "./pages/Home";
-  import Signup from "./pages/Signup";
-  import Login from "./pages/Login";
-  import Offers from "./pages/WhatWeOffere";
-  import ModuleDetail from "./pages/ModuleDetail";
-  import About from "./pages/About";
-  import Navbar from "./pages/NavBar";
-  import Footer from "./pages/Footer";
-  import Booking from "./pages/Booking";
-  import Testimonial from "./pages/Testimonial";
-  import LoginVerify from "./pages/LoginVerify";
-  import ChangePassword from "./pages/ChangePassword";
-  import ProtectedRoute from "./Components/ProtectedRoute";
-  // Create a new component to handle conditional rendering of Navbar and Footer
-  function AppContent() {
-    const location = useLocation(); // Get the current location object
+// Pages
+import Home from "./pages/Home";
+import Signup from "./pages/SignUp";
+import Login from "./pages/Login";
+import Offers from "./pages/WhatWeOffere";
+import ModuleDetail from "./pages/ModuleDetail";
+import About from "./pages/About";
+import Navbar from "./pages/NavBar";
+import Footer from "./pages/Footer";
+import Booking from "./pages/Booking";
+import Testimonial from "./pages/Testimonial";
+import LoginVerify from "./pages/LoginVerify";
+import ChangePassword from "./pages/ChangePassword";
+import StudentDashboard from "./pages/StudentDashboard";
+import TutorDashboard from "./pages/TutorDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 
-    // Define an array of paths where you DON'T want the Navbar/Footer
-    const noNavFooterPaths = ["/verify_login"];
+// Auth protection
+import ProtectedRoute from "./Components/ProtectedRoute";
 
-    // Check if the current path is in the noNavFooterPaths array
-    const showNavAndFooter = !noNavFooterPaths.includes(location.pathname);
+// Component to conditionally show Navbar/Footer
+function AppContent() {
+  const location = useLocation();
 
-    return (
-      <>
-        {showNavAndFooter && <Navbar />} {/* Conditionally render Navbar */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/offers"
-            element={
-              <ProtectedRoute>
-                <Offers />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/booking"
-            element={
-              <ProtectedRoute>
-                <Booking />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/modules/:slug"
-            element={
-              <ProtectedRoute>
-                <Offers />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/about" element={<About />} />
-          <Route path="/testimonials" element={<Testimonial />} />
-          <Route path="/verify_login" element={<LoginVerify />} />
-          <Route path="/change-password" element={<ChangePassword />} />
-          {/* Add more routes as needed */}
-        </Routes>
-        {showNavAndFooter && <Footer />} {/* Conditionally render Footer */}
-      </>
-    );
-  }
+  // Paths without nav & footer
+  const noNavFooterPaths = ["/verify_login"];
 
-  export default function App() {
-    return (
-      <BrowserRouter>
-        <AppContent /> {/* Render the new AppContent component */}
-      </BrowserRouter>
-    );
-  }
+  const showNavAndFooter = !noNavFooterPaths.includes(location.pathname);
+
+  return (
+    <>
+      {showNavAndFooter && <Navbar />}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/verify_login" element={<LoginVerify />} />
+        <Route path="/change-password" element={<ChangePassword />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/testimonials" element={<Testimonial />} />
+
+        {/* Protected Routes */}
+        <Route
+          path="/offers"
+          element={
+            <ProtectedRoute>
+              <Offers />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/modules/:slug"
+          element={
+            <ProtectedRoute>
+              <ModuleDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/booking"
+          element={
+            <ProtectedRoute>
+              <Booking />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/student-dashboard"
+          element={
+            <ProtectedRoute>
+              <StudentDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tutor-dashboard"
+          element={
+            <ProtectedRoute>
+              <TutorDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin-dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+
+      {showNavAndFooter && <Footer />}
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}

@@ -47,7 +47,7 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('../assets/backg.jpg');
+    background-image: url('../assets/tutoring.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -83,7 +83,7 @@
     max-width: 700px;
     margin: auto;
     padding: 30px;
-    background-color: #000;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     color: white;
@@ -94,10 +94,10 @@
     max-width: 700px;
     margin: auto;
     padding: 30px;
-    background-color: #000;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    color: white;
+    color: blue;
   }
 
   /* Home */
@@ -105,16 +105,16 @@
     max-width: 1000px;
     margin: auto;
     padding: 10px 20px;
-    background-color: #000;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(211, 0, 0, 0.1);
-    color: white;
+    color: blue;
   }
 
   /* Headings */
   h2 {
     text-align: center;
-    color: #ffffff;
+    color: #ffd700;
     margin-bottom: 20px;
   }
 

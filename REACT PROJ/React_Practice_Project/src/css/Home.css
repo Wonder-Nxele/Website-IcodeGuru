@@ -4,17 +4,17 @@
   max-width: 800px;
   margin: 100px auto;
   padding: 30px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #f5f5f5;
+  background-color:white;
+  color: blue;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px white;
   text-align: center;
 }
 
 .home-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #3d71e0;
+  color: #ffd700;
 }
 
 .home-intro {
@@ -66,7 +66,7 @@
 
 .features h2 {
   font-size: 1.8rem;
-  color: #3d71e0;
+  color: #ffd700;
   margin-bottom: 15px;
 }
 
@@ -80,7 +80,7 @@
   font-size: 1rem;
 }
 .vacation-promo-container {
-  background-color: black;
+  background-color: White;
   max-width: 800px;
   padding: 30px;
   margin: 40px auto;
@@ -88,10 +88,10 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   max-width: 800px;
   text-align: center;
-  color: white;
+  color: blue;
 }
 
 .vacation-promo-container h2 {
-  color: #007bff;
+  color: #ffd700;
   margin-bottom: 15px;
 }
