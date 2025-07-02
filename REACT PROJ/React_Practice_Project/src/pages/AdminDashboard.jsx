@@ -144,10 +144,10 @@ export default function AdminDashboard() {
 
   return (
     <div className="admin-dashboard">
-      <h2 style={{ color: "#3b82f6" }}>📊 Admin Dashboard</h2>
+      <h2 style={{ color: "#ffd700" }}>📊 Admin Dashboard</h2>
 
       <section>
-        <h2 style={{ color: "#3b82f6" }}>📚 Manage Modules</h2>
+        <h2 style={{ color: "#ffd700" }}>📚 Manage Modules</h2>
         <input placeholder="Module name" value={newModule.name} onChange={e => setNewModule({ ...newModule, name: e.target.value })} />
         <input placeholder="Price" type="number" value={newModule.price} onChange={e => setNewModule({ ...newModule, price: e.target.value })} />
         <input placeholder="Category" value={newModule.category} onChange={e => setNewModule({ ...newModule, category: e.target.value })} />
@@ -163,9 +163,9 @@ export default function AdminDashboard() {
       </section>
 
       <section>
-        <h2 style={{ color: "#3b82f6" }}>🗓️ Bookings</h2>
+        <h2 style={{ color: "#ffd700" }}>🗓️ Bookings</h2>
         {bookings.length === 0 ? (
-          <p style={{ color: "white" }}>No bookings available.</p>
+          <p style={{ color: "#ffd700" }}>No bookings available.</p>
         ) : (
           bookings.map(b => (
             <div key={b.id} className="booking-card">

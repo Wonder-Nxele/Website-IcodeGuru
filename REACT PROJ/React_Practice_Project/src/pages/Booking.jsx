@@ -105,8 +105,8 @@ export default function Booking() {
     // ⭐ FIX END ⭐
 
     try {
-      const adminResult = await send("service_f7wx5f4", "template_m4cftnb", form);
-      const studentResult = await send("service_f7wx5f4", "template_xc5tg7z", form);
+      const adminResult = await send("", "", form);
+      const studentResult = await send("", "", form);
 
       if (adminResult.status !== 200 || studentResult.status !== 200) {
         throw new Error("EmailJS responded with a non-200 status.");

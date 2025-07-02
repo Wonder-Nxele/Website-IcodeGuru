@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
-// Pages
+// 
+import QAPage from "./pages/QAPage";
 import Home from "./pages/Home";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
@@ -57,6 +58,14 @@ function AppContent() {
           element={
             <ProtectedRoute>
               <ModuleDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/qa"
+          element={
+            <ProtectedRoute>
+              <QAPage />
             </ProtectedRoute>
           }
         />

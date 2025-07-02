@@ -53,7 +53,7 @@ export default function Navbar() {
       <div className="navbar-right">
         {isLoggedIn ? (
           <>
-            <Link to="/about">About</Link>
+            <Link to="/qa">Community</Link>
             <Link to="/offers">Courses</Link>
             <Link to={dashboardPath}>Dashboard</Link>
             <Link to="/" className="logout-button" onClick={handleLogout}>

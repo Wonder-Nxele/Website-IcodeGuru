@@ -121,7 +121,7 @@ export default function TutorDashboard() {
       <h2 style={{ color: "#ffd700" }}>
         Welcome, {auth.currentUser?.displayName || "Tutor"}!
       </h2>
-      <p>Managing sessions for: <strong>{tutorSubject}</strong></p>
+      <p h2 style={{ color: "#ffd700" }}>Managing sessions for: <strong>{tutorSubject}</strong></p>
 
       {bookings.length === 0 ? (
         <p>No booking requests for your subjects yet.</p>
