@@ -18,6 +18,7 @@ import ChangePassword from "./pages/ChangePassword";
 import StudentDashboard from "./pages/StudentDashboard";
 import TutorDashboard from "./pages/TutorDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 // Auth protection
 import ProtectedRoute from "./Components/ProtectedRoute";
@@ -43,7 +44,7 @@ function AppContent() {
         <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/about" element={<About />} />
         <Route path="/testimonials" element={<Testimonial />} />
-
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         {/* Protected Routes */}
         <Route
           path="/offers"
