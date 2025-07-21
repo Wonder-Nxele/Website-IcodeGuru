@@ -10,7 +10,7 @@
   /* If you remove 'position: fixed', 'top: 0;' and 'z-index: 1000;' become redundant for this purpose */
   top: auto; /* Reset top property */
   z-index: auto; /* Reset z-index */
-  width: 95%;
+  width: 96.5%;
   height: auto;
   flex-wrap: wrap;
 }

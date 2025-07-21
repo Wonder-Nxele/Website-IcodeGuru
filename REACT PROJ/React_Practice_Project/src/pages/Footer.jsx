@@ -12,9 +12,10 @@ export default function Footer() {
       </div>
 
       <div className="footer-navbar-right">
+        <Link to="/privacy-policy">Privacy Policy</Link>
         <Link to="/about">About</Link>
         <a
-          href="mailto:nkonzon123@gmail.com"
+          href="mailto:icodeguru.tutoring@gmail.com"
           className="footer-link"
           target="_blank"
           rel="noopener noreferrer"

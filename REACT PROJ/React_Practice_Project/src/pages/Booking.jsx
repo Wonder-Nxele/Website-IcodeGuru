@@ -28,8 +28,8 @@ const MODULE_INFO = {
     category: "Computer Science",
   },
   "Introduction to OOP With Java": {
-    description: "Get started with Object-Oriented Programming in Java: classes, objects, inheritance, and encapsulation.",
-    suggestions: ["Classes & Objects", "Inheritance", "Encapsulation"],
+    description: "Get started with Object-Oriented Programming in Java: classes, objects, File Handling, and encapsulation.",
+    suggestions: ["Classes & Objects", "Nested Loops", "File Handling"],
     category: "Computer Science",
   },
   "Java OOP and GUI": {
@@ -105,8 +105,8 @@ export default function Booking() {
     // ⭐ FIX END ⭐
 
     try {
-      const adminResult = await send("", "", form);
-      const studentResult = await send("", "", form);
+      const adminResult = await send("service_lfqgiu9", "template_ttn6kek", form, "uRR0TRpxffVx3r6IY");
+      const studentResult = await send("service_lfqgiu9", "template_ey0g6jl", form, "uRR0TRpxffVx3r6IY");
 
       if (adminResult.status !== 200 || studentResult.status !== 200) {
         throw new Error("EmailJS responded with a non-200 status.");
@@ -142,7 +142,7 @@ export default function Booking() {
       }));
     } catch (error) {
       console.error("Booking submission error:", error);
-      setStatus("Failed to send booking request. Please try again."); // More specific error message
+      setStatus("Failed to send booking request. Please try again."); 
     }
   };
 

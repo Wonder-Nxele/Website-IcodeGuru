@@ -26,18 +26,18 @@ export default function About() {
         <li>Information Systems & Networks (<strong>ISTN212</strong>)</li>
         <li>Statistics (<strong>STATS130, STATS140</strong>)</li>
       </ul>
-      <p>Prices range from <strong>R70 to R90</strong> per hour, depending on the module.</p>
+      <p>Prices range from <strong>R80 to R90</strong> per hour, depending on the module.</p>
 
       <h2>📜 Rules & Regulations</h2>
       <ol>
         <li><strong>Bookings & Payments</strong><br/>
-          - Sessions must be booked at least 24 hours in advance.<br/>
+          - Sessions must be booked at least 48 hours in advance.<br/>
           - Payment must be made before the session begins, unless a prior agreement has been made.<br/>
           - Missed payments may result in suspension of future lessons.
         </li>
         <li><strong>Cancellations & Rescheduling</strong><br/>
-          - Cancel or reschedule up to 12 hours before your session.<br/>
-          - Late cancellations (less than 12 hours) will be billed at 50% of the session fee.<br/>
+          - Cancel or reschedule up to 24 hours before your session.<br/>
+          - Late cancellations (less than 24 hours) will be billed at 50% of the session fee.<br/>
           - No-shows will be billed in full.
         </li>
         <li><strong>Conduct & Respect</strong><br/>

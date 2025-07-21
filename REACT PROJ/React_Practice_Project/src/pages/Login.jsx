@@ -16,31 +16,38 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
+  e.preventDefault();
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    if (user.emailVerified) {
       navigate("/offers");
-    }catch (err) {
-      
-      switch (err.code) {
-        
-        case "auth/invalid-credential":
-        case "auth/user-not-found":
-        case "auth/wrong-password":
-          alert("Incorrect email or password. Please try again.");
-          break;
-
-        case "auth/too-many-requests":
-          alert("Too many login attempts. Please wait and try again later.");
-          break;
-
-        default:
-          alert("Something went wrong. Please try again later.");
-          break;
-      }
+    } else {
+      await auth.signOut(); // Prevent access to the app
+      alert("Please verify your email before logging in. Check your inbox or spam folder.");
+      navigate("/home");
     }
 
+  } catch (err) {
+    switch (err.code) {
+      case "auth/invalid-credential":
+      case "auth/user-not-found":
+      case "auth/wrong-password":
+        alert("Incorrect email or password. Please try again.");
+        break;
+
+      case "auth/too-many-requests":
+        alert("Too many login attempts. Please wait and try again later.");
+        break;
+
+      default:
+        alert("Something went wrong. Please try again later.");
+        break;
+    }
+  }
   };
+
 
   const handleGoogleLogin = async () => {
     try {
@@ -62,14 +69,14 @@ export default function Login() {
         {error && <p className="error">{error}</p>}
 
         <form onSubmit={handleLogin} style={{ width: '100%' }}>
-          <input
+          <input style={{marginLeft: '-5px'}}
             type="email"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             required // Added required attribute
           />
-          <div style={{ position: "relative" /* Keep this */ }}>
-            <input
+          <div style={{ position: "relative"}}>
+            <input style={{marginLeft: '-5px'}}
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
@@ -124,6 +131,13 @@ export default function Login() {
         >
           Continue with Google
         </button>
+        <br></br>
+        <p style={{ textAlign: "center", marginTop: "15px", marginBottom: "0" }}>
+          Don't have an account?  
+          <Link to="/signup" style={{ color: "#3d71e0", textDecoration: "none" }}>
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   );

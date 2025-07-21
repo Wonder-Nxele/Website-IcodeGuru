@@ -16,14 +16,36 @@ export default function LoginVerify() {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert("Logged in successfully!");
+  e.preventDefault();
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    if (user.emailVerified) {
       navigate("/offers");
-    } catch (err) {
-      alert("Incorrect email or email. Please try again.");
+    } else {
+      await auth.signOut(); // Prevent access to the app
+      alert("Please verify your email before logging in. Check your inbox or spam folder.");
+      navigate("/home");
     }
+
+  } catch (err) {
+    switch (err.code) {
+      case "auth/invalid-credential":
+      case "auth/user-not-found":
+      case "auth/wrong-password":
+        alert("Incorrect email or password. Please try again.");
+        break;
+
+      case "auth/too-many-requests":
+        alert("Too many login attempts. Please wait and try again later.");
+        break;
+
+      default:
+        alert("Something went wrong. Please try again later.");
+        break;
+    }
+  }
   };
 
   const handleGoogleLogin = async () => {

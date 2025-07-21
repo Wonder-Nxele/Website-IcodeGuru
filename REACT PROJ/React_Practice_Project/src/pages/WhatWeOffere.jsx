@@ -36,9 +36,6 @@ export default function WhatWeOffer() {
   return (
     <div className="offers-container">
       <h1>What We Offer</h1>
-      <h2 style={{ color: "Blue" }}>
-        Browse the modules available and click to learn more or book a session.
-      </h2>
 
       {/* Computer Science Section */}
       {groupedModules["Computer Science"] && (
@@ -93,7 +90,7 @@ export default function WhatWeOffer() {
         <section className="module-section">
           <h2 className="category-title">📊 Statistics Module</h2>
           <p className="category-description">
-            Need help understanding data and probability? This module is ideal for business, health science, and CS students alike.
+            Need help understanding data and probability?
           </p>
           <div className="module-grid">
             {groupedModules["Statistics"].map((mod, index) => (

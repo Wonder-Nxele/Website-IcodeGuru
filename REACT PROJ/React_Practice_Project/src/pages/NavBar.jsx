@@ -56,16 +56,16 @@ export default function Navbar() {
             <Link to="/qa">Community</Link>
             <Link to="/offers">Courses</Link>
             <Link to={dashboardPath}>Dashboard</Link>
+            <Link to="/profile"> 👤 </Link>
             <Link to="/" className="logout-button" onClick={handleLogout}>
-              Logout
+              🚪
             </Link>
           </>
         ) : (
           <>
             <Link to="/">Home</Link>
             <Link to="/testimonials">Testimonials</Link>
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/login">Login</Link>
+            <Link  to="/login">Sign In</Link>
           </>
         )}
       </div>

@@ -30,8 +30,8 @@ export default function Signup() {
       // Send email verification
       await sendEmailVerification(userCredential.user);
 
-      alert(`Welcome, ${name}! Please check your email to verify your account.`);
-      navigate("/verify_login");
+      alert(`Welcome, ${name}! Please check your email inbox or spam folder to verify your account.`);
+      navigate("/login");
     } catch (err) {
       setError(err.message);
     }
@@ -61,23 +61,23 @@ export default function Signup() {
         {error && <p className="error">{error}</p>}
 
         <form onSubmit={handleSignup} style={{ width: '100%' }}>
-          <input
+          <input style={{marginLeft: '-5px'}}
             type="text"
             placeholder="Your Name"
             onChange={(e) => setName(e.target.value)}
             required
-            style={{ marginBottom: "15px" }}
+            
           />
 
-          <input
+          <input style={{marginLeft: '-5px'}}
             type="email"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
 
-                    <div style={{ position: "relative" /* Keep this */ }}>
-            <input
+          <div style={{ position: "relative" /* Keep this */ }}>
+            <input style={{marginLeft: '-5px'}}
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}

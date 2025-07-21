@@ -19,7 +19,7 @@ import StudentDashboard from "./pages/StudentDashboard";
 import TutorDashboard from "./pages/TutorDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-
+import Profile from "./pages/Profile";
 // Auth protection
 import ProtectedRoute from "./Components/ProtectedRoute";
 
@@ -51,6 +51,14 @@ function AppContent() {
           element={
             <ProtectedRoute>
               <Offers />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }
         />

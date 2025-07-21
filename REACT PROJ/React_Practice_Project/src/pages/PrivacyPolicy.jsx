@@ -279,7 +279,7 @@ export default function PrivacyPolicy() {
         <h2>12. Contact Us</h2>
         <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
         <p><strong>iCodeGuru</strong><br />
-        <strong>Email:</strong> nkonzon123@gmail.com<br />
+        <strong>Email:</strong> icodeguru.tutoring@gmail.com<br />
         <strong>Phone:</strong> +27 60 760 1329
         </p>
         <p>We are committed to resolving any complaints about our collection or use of your personal information.</p>
