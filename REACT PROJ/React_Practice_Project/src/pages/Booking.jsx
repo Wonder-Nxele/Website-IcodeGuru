@@ -8,7 +8,7 @@ import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 // Initialize EmailJS
-init("P8-e-A5kGEE7OsFYG");
+init("");
 
 // Module info map
 const MODULE_INFO = {
@@ -105,8 +105,8 @@ export default function Booking() {
     // ⭐ FIX END ⭐
 
     try {
-      const adminResult = await send("service_lfqgiu9", "template_ttn6kek", form, "uRR0TRpxffVx3r6IY");
-      const studentResult = await send("service_lfqgiu9", "template_ey0g6jl", form, "uRR0TRpxffVx3r6IY");
+      const adminResult = await send();
+      const studentResult = await send();
 
       if (adminResult.status !== 200 || studentResult.status !== 200) {
         throw new Error("EmailJS responded with a non-200 status.");
